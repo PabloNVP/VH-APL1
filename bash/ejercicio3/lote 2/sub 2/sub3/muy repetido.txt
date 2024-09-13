@@ -1,0 +1,5 @@
+Como ya hablamos, la funcionalidad de hot spare permite dejar uno o más discos como spares o
+repuesto. Estos discos están conectados al sistema pero en modo stand by, es decir, sin usar. Cuando
+cualquier disco de cualquier array falla (excepto en el RAID 0 que no brinda redundancia), el sistema
+desconecta de ese array el disco fallado y lo reemplaza automáticamente por el que estaba en modo hot
+spare. Esto hace que automáticamente el sistema para ese array entre en modo de reconstrucción.
