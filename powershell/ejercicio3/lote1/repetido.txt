@@ -1,0 +1,3 @@
+En este ejemplo se ve cómo los diferentes archivos (de igual tamaño que en los casos anteriores) se
+distribuyen entre 8 discos. Los dos rectángulos negros representan los sub arrays en RAID0, los cuales
+son duplicados utilizando la técnica de mirroring.
