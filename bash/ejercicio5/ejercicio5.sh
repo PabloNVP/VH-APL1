@@ -5,6 +5,7 @@
 ###     Rodriguez, Pablo            - CONFIDENCE    ### 
 ###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
 ###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
+###     Rodriguez, Emanual          - CONFIDENCE    ###
 
 # Verifica si se consulta la ayuda.
 if [[ $1 == "-h" || $1 == "--help" ]]; then
