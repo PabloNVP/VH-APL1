@@ -1,3 +1,27 @@
+<#
+.SYNOPSIS
+    Script para encontrar archivos duplicados en un directorio, comparando por nombre y tamaño.
+    
+.DESCRIPTION
+    Este script recursivamente busca archivos en el directorio especificado, 
+    comparando por nombre y tamaño, y muestra la lista de archivos duplicados junto con sus rutas.
+
+.PARAMETER directorio
+    Especifica el directorio en el que se desea buscar archivos duplicados.
+
+.EXAMPLE
+    .\script.ps1 -directorio "Ruta\al\directorio"
+    Busca archivos duplicados en el directorio especificado y muestra los resultados.
+
+.EXAMPLE
+    Get-Help .\script.ps1
+    Muestra la ayuda del script.
+    
+.NOTES
+    Autor: Vazquez Petracca, Pablo N., Rodriguez, Pablo, Collazo, Ignacio Lahuel, Pozzato, Alejo Martin, Rodriguez, Emanuel
+    Fecha: 2024-09-18
+#>
+
 ###                 INTEGRANTES                     ###
 ###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ###
 ###     Rodriguez, Pablo            - CONFIDENCE    ###
