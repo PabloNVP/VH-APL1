@@ -24,14 +24,12 @@ ayuda() {
 # Validar comandos y parámetros
 validar() {
     if [[ -z "$matrix_file" ]]; then
-        echo "Error: El parámetro -m es obligatorio."
-        ayuda
+        echo "Error: El parámetro -m es obligatorio. Utilice $0 -h o --help para obtener ayuda."
         exit 1
     fi
 
     if [[ "$product" && "$transpose" ]]; then
-        echo "Error: Los parámetros -p y -t son mutuamente excluyentes"
-        ayuda
+        echo "Error: Los parámetros -p y -t son mutuamente excluyentes. Utilice $0 -h o --help para obtener ayuda."
         exit 1
     fi
 }
@@ -133,6 +131,10 @@ while [[ "$#" -gt 0 ]]; do
             shift 2
             ;;
         -p|--producto)
+            if [[ -z "$2" ]]; then
+                echo "Error: Se debe ingresar el valor entero para escalar la matriz."
+	 	        exit 1
+            fi
             product="$2"
             shift 2
             ;;
@@ -170,8 +172,7 @@ if [[ "$transpose" ]]; then
 elif [[ "$product" ]]; then
     producto "$product"
 else
-    echo "Error: Se debe especificar al menos una operación: -p o -t."
-    ayuda
+    echo "Error: Se debe especificar al menos una operación: -p o -t. Utilice $0 -h o --help para obtener ayuda."
     exit 1
 fi
 
