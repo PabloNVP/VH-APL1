@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ###                 INTEGRANTES                     ###
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
-###     Rodriguez, Pablo            - CONFIDENCE    ### 
 ###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
 ###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
 ###     Rodriguez, Emanual          - CONFIDENCE    ###
+###     Rodriguez, Pablo            - CONFIDENCE    ### 
+###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
 
 # Verifica si se consulta la ayuda.
 if [[ $1 == "-h" || $1 == "--help" ]]; then
