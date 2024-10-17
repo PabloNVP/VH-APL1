@@ -279,13 +279,13 @@ function procesamiento(){
         then
 		awk -v numerosGanadores="$numerosGanadores" -f "$awkScript" "$directorio"/*.csv 2>/dev/null
                 if [ $? -ne 0 ]; then
-			echo "Error: Verifique los archivos que contiene $directorio"
+			echo "Error: Verifique los archivos que contiene sean válidos $directorio"
 			exit 1
                	fi
         else
-                awk -v numerosGanadores="$numerosGanadores" -f "$awkScript" "$directorio"/*.csv >> "$archivo"
+                awk -v numerosGanadores="$numerosGanadores" -f "$awkScript" 2>/dev/null "$directorio"/*.csv >> "$archivo"
                 if [ $? -ne 0 ]; then
-                        echo "Error: Verifique el archivo de salida o los archivos que contiene $directorio"
+                        echo "Error: Verifique que el archivo de salida sea válido o los archivos que contiene $directorio"
                         exit 1
                	fi
 	fi
