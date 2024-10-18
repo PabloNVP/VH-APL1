@@ -92,6 +92,11 @@ function query(){
             if [[ -z "$result"  ]]; then
                 result=$(wget -qO- "$3/$id")
 
+                if [ $? -ne 0 ]; then
+                    echo "Error: No se pudo conectar a Internet."
+                    return
+                fi
+
                 if [[ -z "$result"  ]]; then
                     det=$([[ "$4" == "Personaje" ]] && echo "ningún" || echo "ninguna")
                     echo -e "No existe "$det" "$4" con el id \"$id\" \n"

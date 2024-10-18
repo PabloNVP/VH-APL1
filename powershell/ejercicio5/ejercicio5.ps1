@@ -126,7 +126,11 @@ if($people){
 
                 Write-Output $newobj
             }catch{
-                Write-Host "No existe ningún Personaje con el id $id `n" -ForegroundColor Red
+                if($($_.Exception.Response)){
+                    Write-Host "No existe ningún Personaje con el id $id `n" -ForegroundColor Red
+                }else{
+                    Write-Host "Error: No se pudo conectar a Internet.`n" -ForegroundColor Red
+                } 
             }
         }else{
             if($first -eq 0){
@@ -177,7 +181,11 @@ if($film){
 
                 Write-Output $newobj
             }catch{
-                Write-Host "No existe ninguna Pelicula con el id $id `n" -ForegroundColor Red
+                if($($_.Exception.Response)){
+                    Write-Host "No existe ninguna Pelicula con el id $id `n" -ForegroundColor Red
+                }else{
+                    Write-Host "Error: No se pudo conectar a Internet.`n" -ForegroundColor Red
+                }
             }
         }else{
             if($first -eq 0){
