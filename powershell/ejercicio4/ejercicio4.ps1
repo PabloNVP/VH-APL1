@@ -25,19 +25,21 @@
     Flag que se utiliza para indicar que el script debe detener el demonio previamente iniciado. Este parametro solo se puede usar junto con -directorio.
 
     .EXAMPLE
-    .\ejercicio4.ps1 -directorio "./archivos" -salida "./backups"
+    .\Ejercicio4.ps1 -directorio "./archivos" -salida "./backups"
     Este ejemplo especifica el directorio a monitorear, y el directorio destino donde se deben generar los .zip de backup correspondiente.
 
     .EXAMPLE
-    .\ejercicio4.ps1 -directorio "C:/users/test/Powershell/archivos" -salida "C:/users/test/Powershell/backups"
+    .\Ejercicio4.ps1 -directorio "C:/users/test/Powershell/archivos" -salida "C:/users/test/Powershell/backups"
     Este ejemplo especifica el directorio a monitorear, y el directorio destino donde se deben generar los .zip de backup correspondiente, utilizando los paths absolutos.
 
     .EXAMPLE
-    .\ejercicio4.ps1 -directorio "./archivos" -kill
+    .\Ejercicio4.ps1 -directorio "./archivos" -kill
     Este ejemplo muestra la manera de finalizar el demonio utilizando el parametro "kill".
 
     .NOTES
-    Autor: Grupo 01 - Jueves TN
+    + Autor: Grupo 01 - Jueves TN
+    + Tener en cuenta el encoding de los archivos, debido a que la condicion de duplicado es: mismo nombre de archivo y tamanio en bytes
+    
 
     Tabla de codigos de error:
     +----------------------------------------------------------------------------------------+
@@ -104,34 +106,53 @@ function validar_job {
 function iniciar_job {
     Start-Job -Name "monitoreo_$($directorio_base)" -ScriptBlock {
         param ($directorio, $salida)
+
         $watcher = New-Object System.IO.FileSystemWatcher
         $watcher.Path = $directorio
         $watcher.IncludeSubdirectories = $true
         $watcher.EnableRaisingEvents = $true
+        $watcher.NotifyFilter = [System.IO.NotifyFilters]'FileName, LastWrite, Size'
+
+        $timestamp = Get-Date -Date "01/01/2000"
+        $tiempo_espera = 400  # Tiempo para evitar 2 eventos seguidos y que se generen 2 zip
 
         $action = {
             $file = Get-Item -Path $Event.SourceEventArgs.FullPath
-            $duplicados = Get-ChildItem -Path $directorio -Recurse | Where-Object {
-                $_.Name -eq $file.Name -and $_.Length -eq $file.Length -and $_.FullName -ne $file.FullName
-            }
 
-            if ($duplicados) {
-                $archivo_zip = Join-Path $salida "$(Get-Date -Format 'yyyyMMdd_HHmmss').zip"
-                if (-not (Test-Path $archivo_zip)) {
-                    Compress-Archive -Path $file.FullName -DestinationPath $archivo_zip
+            if (((Get-Date) - $timestamp).TotalMilliseconds -ge $tiempo_espera) {
+                $timestamp = Get-Date
+
+                $duplicado = $false
+                $files_en_directorio = Get-ChildItem -Path $directorio -Recurse -File
+
+                foreach ($otro_file in $files_en_directorio) {
+                    if ($otro_file.FullName -ne $file.FullName -and
+                        $otro_file.Name -eq $file.Name -and
+                        $otro_file.Extension -eq $file.Extension -and
+                        $otro_file.Length -eq $file.Length) {
+                        $duplicado = $true # Si esta duplicado, sale
+                        break
+                    }
+                }
+
+                if ($duplicado) {
+                    $zipFile = Join-Path $salida "$(Get-Date -Format 'yyyyMMdd_HHmmss').zip"
+                    Compress-Archive -Path $file.FullName -DestinationPath $zipFile
                 }
             }
         }
 
         Register-ObjectEvent -InputObject $watcher -EventName Created -Action $action
+        Register-ObjectEvent -InputObject $watcher -EventName Changed -Action $action
         Register-ObjectEvent -InputObject $watcher -EventName Renamed -Action $action
+        Register-ObjectEvent -InputObject $watcher -EventName Modified -Action $action
 
         Write-Output "+---- Monitoreando directorio: '$($watcher.Path)' ----+"
         Register-EngineEvent PowerShell.Exiting -Action {
             Unregister-Event -SourceIdentifier FileSystemWatcherEvent
         }
         Wait-Event -SourceIdentifier FileSystemWatcherEvent
-    } -ArgumentList $directorio, $salida
+    } -ArgumentList $directorio, $salida > $null
     Write-Output "+ Demonio iniciado en segundo plano."
 }
 
@@ -162,7 +183,8 @@ function finalizar_demonio {
 
 try {
     validacion_principal
-
+    
+    validar_parametros
     $directorio = Resolve-Path -Path $directorio
     $directorio_base = Split-Path -Path $directorio -Leaf
 
@@ -170,7 +192,6 @@ try {
         finalizar_demonio
     } else {
         $salida = Resolve-Path -Path $salida
-        validar_parametros
         validar_job
         iniciar_job
     }
