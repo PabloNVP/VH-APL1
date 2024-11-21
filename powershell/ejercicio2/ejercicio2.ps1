@@ -29,12 +29,13 @@ Get-Help ./ejercicio2.ps1
 ./ejercicio2.ps1 -trasponer -matriz lote1/matriz.txt
 #>
 
-###                 INTEGRANTES                     ###
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
-###     Rodriguez, Pablo            - CONFIDENCE    ### 
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
-###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
-###     Rodriguez, Emanual          - CONFIDENCE    ###
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 param (
     [Parameter(Mandatory=$true)]

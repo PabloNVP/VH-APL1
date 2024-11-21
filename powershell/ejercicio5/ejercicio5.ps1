@@ -18,12 +18,13 @@
     ejercicio5.ps1 -clear
 #>
 
-###                 INTEGRANTES                     ###
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
-###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
-###     Rodriguez, Emanual          - CONFIDENCE    ###
-###     Rodriguez, Pablo            - CONFIDENCE    ### 
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 Param(
     [Parameter(Mandatory = $false)]

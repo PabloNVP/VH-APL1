@@ -1,14 +1,12 @@
 #!/bin/bash
 
-    # +------------------------------------+
-    # | Grupo |    Integrantes             |
-    # -------------------------------------|
-    # |       | Collazo, Ignacio           |
-    # |  01   | Pozzato, Alejo             |
-    # |       | Rodriguez, Emanuel         |
-    # |       | Rodriguez, Pablo           |
-    # |       | Vazquez Petracca, Pablo    |
-    # +------------------------------------+
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 # Manejo de interrupcion por teclado (Ctrl+C)
 function ctrl_c() {

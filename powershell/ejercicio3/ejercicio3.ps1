@@ -22,12 +22,13 @@
     Fecha: 2024-09-18
 #>
 
-###                 INTEGRANTES                     ###
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ###
-###     Rodriguez, Pablo            - CONFIDENCE    ###
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ###
-###     Pozzato, Alejo Martin       - CONFIDENCE    ###
-###     Rodriguez, Emanuel          - CONFIDENCE    ###
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 param(
     [Parameter(Mandatory=$True)][string]$directorio

@@ -1,11 +1,12 @@
 #!/bin/bash
 
-###                 INTEGRANTES                     ###
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
-###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
-###     Rodriguez, Emanual          - CONFIDENCE    ###
-###     Rodriguez, Pablo            - CONFIDENCE    ### 
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 function ayuda(){
         echo "Uso: $0 [opciones]"

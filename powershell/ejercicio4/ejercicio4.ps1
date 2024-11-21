@@ -1,13 +1,3 @@
-# +----------------------------------------+
-    # | Grupo |    Integrantes             |
-    # -------------------------------------|
-    # |       | Collazo, Ignacio           |
-    # |  01   | Pozzato, Alejo             |
-    # |       | Rodriguez, Emanuel         |
-    # |       | Rodriguez, Pablo           |
-    # |       | Vazquez Petracca, Pablo    |
-    # +------------------------------------+
-
 <#
     .SYNOPSIS
     Este script realiza el monitoreo en segundo plano de los archivos de un directorio especificado.
@@ -51,6 +41,14 @@
     |    04   | El directorio especificado para crear los backups, no existe.                |
     +----------------------------------------------------------------------------------------+
 #>
+
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 param (
     [Parameter(Mandatory=$true)]

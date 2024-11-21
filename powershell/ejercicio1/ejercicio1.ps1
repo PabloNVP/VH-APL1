@@ -20,13 +20,13 @@
 	./Ejercicio1.ps1 -directorio directorioEjemplo/archivos -pantalla
 #>
 
-###                 INTEGRANTES                     ###
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ###
-###     Rodriguez, Pablo            - CONFIDENCE    ###
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ###
-###     Pozzato, Alejo Martin       - CONFIDENCE    ###
-###     Rodriguez, Emanuel          - CONFIDENCE    ###
-
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 Param(
 	[Parameter(Mandatory=$true)]

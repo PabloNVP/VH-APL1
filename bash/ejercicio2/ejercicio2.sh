@@ -1,11 +1,12 @@
 #!/bin/bash
 
-###                 INTEGRANTES                     ###
-###     Vazquez Petracca, Pablo N.  - CONFIDENCE    ### 
-###     Rodriguez, Pablo            - CONFIDENCE    ### 
-###     Collazo, Ignacio Lahuel     - CONFIDENCE    ### 
-###     Pozzato, Alejo Martin       - CONFIDENCE    ### 
-###     Rodriguez, Emanual          - CONFIDENCE    ###
+############### INTEGRANTES ###############
+###     Collazo, Ignacio Lahuel         ### 
+###     Pozzato, Alejo Martin           ### 
+###     Rodriguez, Emanual              ###
+###     Rodriguez, Pablo                ### 
+###     Vazquez Petracca, Pablo N.      ### 
+###########################################
 
 # Variables para manejo de errores
 error_log="/tmp/matrix_script_error.log"
